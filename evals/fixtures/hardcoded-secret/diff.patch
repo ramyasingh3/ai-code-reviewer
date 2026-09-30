@@ -1,0 +1,10 @@
+diff --git a/auth.py b/auth.py
+index 111..222 100644
+--- a/auth.py
++++ b/auth.py
+@@ -1,4 +1,6 @@
+ def login(user):
+-    return True
++    password = "supersecret123"
++    print("logging in", user)
++    return password == user

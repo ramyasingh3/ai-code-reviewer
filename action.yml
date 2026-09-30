@@ -1,0 +1,13 @@
+name: "AI Code Reviewer"
+description: "Review PR diffs with heuristic + optional LLM"
+runs:
+  using: "composite"
+  steps:
+    - name: Review
+      shell: bash
+      run: |
+        git fetch origin ${{ github.base_ref }} --depth=1 || true
+        git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr.diff || git diff HEAD~1 > /tmp/pr.diff
+        PYTHONPATH="${{ github.action_path }}/src" python3 -m ai_code_reviewer review --diff-file /tmp/pr.diff --format markdown > review.md
+        echo "## Review preview" >> "$GITHUB_STEP_SUMMARY"
+        cat review.md >> "$GITHUB_STEP_SUMMARY"

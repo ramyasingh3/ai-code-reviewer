@@ -1,0 +1,14 @@
+diff --git a/worker.py b/worker.py
+index 111..222 100644
+--- a/worker.py
++++ b/worker.py
+@@ -1,5 +1,8 @@
+ def handle(event):
+     try:
+         process(event)
+-    except ValueError:
+-        raise
++    except:
++        pass
++    # TODO: retry logic
++    return True

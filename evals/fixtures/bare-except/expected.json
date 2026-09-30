@@ -1,0 +1,4 @@
+{
+  "must_find": ["Bare/swallowed exception", "Leftover TODO/FIXME"],
+  "forbid_extra_critical": false
+}

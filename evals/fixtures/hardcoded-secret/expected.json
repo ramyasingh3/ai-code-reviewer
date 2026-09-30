@@ -1,0 +1,4 @@
+{
+  "must_find": ["Hardcoded password", "Debug logging left in"],
+  "forbid_extra_critical": false
+}
